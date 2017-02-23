@@ -1,2 +1,9 @@
 <Page ux:Class="SplashPage">
+    <Router ux:Dependency="router"/>
+    <JavaScript File="SplashPage.js"/>
+    <DockPanel ClipToBounds="true">
+        <StackPanel Alignment="VerticalCenter">
+            <logbook.LogoText>logbook</logbook.LogoText>
+        </StackPanel>
+    </DockPanel>
 </Page>

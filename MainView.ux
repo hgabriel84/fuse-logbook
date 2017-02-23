@@ -1,7 +1,10 @@
 <App>
+    <float4 ux:Global="logbook.Color.Primary" ux:Value="#008BDF"/>
+    <float4 ux:Global="logbook.Color.PrimaryDark" ux:Value="#005693"/>
+    <float4 ux:Global="logbook.Color.Accent" ux:Value="#FFFFFF"/>
     <Router ux:Name="router"/>
     <ClientPanel>
-        <Navigator>
+        <Navigator DefaultPath="login">
             <HomePage ux:Template="home" router="router"/>
             <LoginPage ux:Template="login" router="router"/>
             <SplashPage ux:Template="splash" router="router"/>

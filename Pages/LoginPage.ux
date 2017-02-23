@@ -1,2 +1,10 @@
 <Page ux:Class="LoginPage">
+  <Router ux:Dependency="router"/>
+  <JavaScript File="LoginPage.js"/>
+  <DockPanel ClipToBounds="true">
+    <StackPanel Alignment="VerticalCenter" Margin="10" ItemSpacing="10">
+      <logbook.LoginNameTextInput>email</logbook.LoginNameTextInput>
+      <logbook.LoginPasswordTextInput>password</logbook.LoginPasswordTextInput>
+    </StackPanel>
+  </DockPanel>
 </Page>

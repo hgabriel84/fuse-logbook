@@ -1,2 +1,3 @@
 <Page ux:Class="HomePage">
+  <Router ux:Dependency="router"/>
 </Page>
