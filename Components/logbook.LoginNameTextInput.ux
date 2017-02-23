@@ -1,6 +1,0 @@
-<TextInput ux:Class="logbook.LoginTextInput" FontSize="20" PlaceholderText="email" PlaceholderColor="{Resource logbook.Color.Primary}" CaretColor="{Resource logbook.Color.Primary}" Padding="5">
-  <Rectangle Layer="Background" CornerRadius="3">
-    <Stroke Width="1" Color="{Resource logbook.Color.Primary}" />
-    <SolidColor Color="White" />
-  </Rectangle>
-</TextInput>

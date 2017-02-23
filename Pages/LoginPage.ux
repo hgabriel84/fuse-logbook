@@ -1,7 +1,0 @@
-<Page ux:Class="LoginPage">
-    <Router ux:Dependency="router"/>
-    <JavaScript File="LoginPage.js"/>
-    <DockPanel ClipToBounds="true">
-        <logbook.LoginGrid Margin="40,0"/>
-    </DockPanel>
-</Page>
