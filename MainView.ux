@@ -1,6 +1,6 @@
-<App>
-    <float4 ux:Global="logbook.Color.Primary" ux:Value="#008BDF"/>
-    <float4 ux:Global="logbook.Color.PrimaryDark" ux:Value="#005693"/>
+<App Background="#022328">
+    <float4 ux:Global="logbook.Color.Primary" ux:Value="#FFFFFF"/>
+    <float4 ux:Global="logbook.Color.PrimaryDark" ux:Value="#008BDF"/>
     <float4 ux:Global="logbook.Color.Accent" ux:Value="#FFFFFF"/>
     <Router ux:Name="router"/>
     <ClientPanel>

@@ -1,0 +1,30 @@
+<Grid ux:Class="logbook.LoginGrid" Rows="1.5*,auto,1*">
+
+	<Grid ux:Name="loginArea" Row="1" Padding="0,20" RowCount="2" Columns="auto,1*" Height="160" MaxWidth="400">
+		<Image Row="0" Column="0" File="../Assets/user_icon.png" Width="20" Height="20" Margin="10,0,30,0" Alignment="Left"/>
+		<TextInput Row="0" Column="1" PlaceholderText="Email" PlaceholderColor="{Resource logbook.Color.PrimaryDark}" TextColor="{Resource logbook.Color.Primary}" CaretColor="{Resource logbook.Color.Primary}"/>
+		<Rectangle Row="0" Column="0" Alignment="Bottom" ColumnSpan="2" Height="1" Color="{Resource logbook.Color.PrimaryDark}"/>
+		<Image Row="1" Column="0" File="../Assets/password_icon.png" Width="20" Height="20" Margin="10,0,30,0" Alignment="Left"/>
+		<TextInput Row="1" Column="1" PlaceholderText="Password" PlaceholderColor="{Resource logbook.Color.PrimaryDark}" TextColor="{Resource logbook.Color.Primary}" CaretColor="{Resource logbook.Color.Primary}" IsPassword="true"/>
+		<Rectangle Row="1" Column="0" Alignment="Bottom" ColumnSpan="2" Height="1" Color="{Resource logbook.Color.PrimaryDark}"/>
+	</Grid>
+
+	<Panel Row="2" Width="150" Height="60">
+		<Text ux:Name="text" Alignment="Center" Value="Sign in" FontSize="18" Color="{Resource logbook.Color.Primary}"/>
+		<!--
+		<Panel ux:Name="loadingCirclePanel">
+			<Circle ux:Name="loadingCircle" Width="70%" Height="70%" Opacity="0" StartAngleDegrees="0" LengthAngleDegrees="90">
+				<Stroke Width="1" Brush="#fff"/>
+			</Circle>
+		</Panel>
+		<Clicked>
+			<Toggle Target="loading"/>
+		</Clicked> -->
+		<Rectangle ux:Name="rectNormalScale" CornerRadius="30" Color="{Resource logbook.Color.PrimaryDark}" Width="300" Height="60"/>
+		<!--
+		<Circle ux:Name="loadingButton" Opacity="0" Alignment="Center" Layer="Background" Width="240" Height="240" Color="#FF3366">
+			<Scaling Factor="0.25"/>
+		</Circle> -->
+	</Panel>
+
+</Grid>
