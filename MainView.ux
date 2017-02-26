@@ -1,10 +1,11 @@
-<App Background="#022328">
-    <float4 ux:Global="logbook.Color.Primary" ux:Value="#FFFFFF"/>
-    <float4 ux:Global="logbook.Color.PrimaryDark" ux:Value="#008BDF"/>
-    <float4 ux:Global="logbook.Color.Accent" ux:Value="#FFFFFF"/>
+<App Background="Color.Background">
+    <iOS.StatusBarConfig Style="Light"/>
+    <Android.StatusBarConfig Color="Color.Background"/>
+
     <Router ux:Name="router"/>
+
     <ClientPanel>
-        <Navigator DefaultPath="login">
+        <Navigator DefaultPath="splash">
             <HomePage ux:Template="home" router="router"/>
             <LoginPage ux:Template="login" router="router"/>
             <SplashPage ux:Template="splash" router="router"/>

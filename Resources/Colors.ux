@@ -1,0 +1,6 @@
+<Panel ux:Class="logbook.Colors">
+  <float4 ux:Global="Color.Primary" ux:Value="#FFFFFF"/>
+  <float4 ux:Global="Color.PrimaryDark" ux:Value="#008BDF"/>
+  <float4 ux:Global="Color.Accent" ux:Value="#FFFFFF"/>
+  <float4 ux:Global="Color.Background" ux:Value="#022328" />
+</Panel>

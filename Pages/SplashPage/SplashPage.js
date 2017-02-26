@@ -1,7 +1,9 @@
-function goToHomePage() {
-    router.goto("home");
-}
+var Timer = require("FuseJS/Timer");
 
-module.exports = {
-    goToHomePage: goToHomePage
-};
+Timer.create(function() {
+    goToLoginPage();
+}, 3000, false);
+
+function goToLoginPage() {
+    router.goto("login");
+}

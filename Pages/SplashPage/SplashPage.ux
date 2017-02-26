@@ -1,9 +1,12 @@
 <Page ux:Class="SplashPage">
     <Router ux:Dependency="router"/>
+
     <JavaScript File="SplashPage.js"/>
-    <DockPanel ClipToBounds="true">
+    <DockPanel>
         <StackPanel Alignment="VerticalCenter">
-            <logbook.LogoText>logbook</logbook.LogoText>
+            <logbook.LogoText/>
         </StackPanel>
+
+        <logbook.Text Dock="Bottom" Margin="10" Opacity=".5" TextAlignment="Center" FontSize="12">made with Fuse</logbook.Text>
     </DockPanel>
 </Page>
