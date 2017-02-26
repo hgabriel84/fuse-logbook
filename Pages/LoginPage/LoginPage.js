@@ -1,11 +1,17 @@
 var Observable = require("FuseJS/Observable");
-var RestApi = require("Modules/RestApi");
+var Context = require("Modules/Context");
 
 var username = Observable();
 var password = Observable();
 
 function login() {
-    RestApi.login(username.value, password.value);
+    Context.login(username.value, password.value)
+        .then(sessionToken =>
+            router.push("homePage", sessionToken)
+        )
+        .catch(error =>
+            //TODO show error in page
+        );
 }
 
 module.exports = {
