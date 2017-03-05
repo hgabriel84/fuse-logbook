@@ -1,4 +1,4 @@
-const baseUrl = "http://172.16.176.166:9000";
+const baseUrl = "http://localhost:9000";
 
 var isLoggingIn = false;
 
@@ -11,24 +11,26 @@ function login(username, password) {
 
     var formBody = [];
     for (var property in details) {
-        var encodedKey = encodeURIComponent(property);
-        var encodedValue = encodeURIComponent(details[property]);
-        formBody.push(encodedKey + "=" + encodedValue);
+        formBody.push(property + "=" + details[property]);
     }
     formBody = formBody.join("&");
-    fetch(baseUrl + '/auth/login', {
-        method: 'POST',
-        headers: {
-            "Accept": "application/json",
-            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-        },
-        body: formBody
-    }).then(function(response) {
-        isLoggingIn = false;
-        return response.json();
-    }).catch(function(err) {
-        isLoggingIn = false;
-        console.log("Error in Auth.js: " + JSON.stringify(err));
+
+    return new Promise((resolve, reject) => {
+        fetch(baseUrl + '/auth/login', {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            body: formBody
+        }).then(function(response) {
+            return response.json();
+        }).then(function(r) {
+            resolve(r.token);
+        }).catch(function(err) {
+            isLoggingIn = false;
+            console.log("Error in RestApi.js: " + JSON.stringify(err));
+        });
     });
 }
 

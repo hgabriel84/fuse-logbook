@@ -6,11 +6,12 @@ var password = Observable();
 
 function login() {
     Context.login(username.value, password.value)
-        .then(sessionToken =>
-            router.push("homePage", sessionToken)
+        .then(() =>
+            router.push("home")
         )
         .catch(error =>
             //TODO show error in page
+            console.log(error)
         );
 }
 
