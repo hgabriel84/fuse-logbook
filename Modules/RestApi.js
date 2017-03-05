@@ -29,11 +29,31 @@ function login(username, password) {
             resolve(r.token);
         }).catch(function(err) {
             isLoggingIn = false;
-            console.log("Error in RestApi.js: " + JSON.stringify(err));
+            console.log("Error logging in: " + JSON.stringify(err));
+        });
+    });
+}
+
+function getBooks(token) {
+    return new Promise((resolve, reject) => {
+        console.log(baseUrl + '/books?logbook-session=' + token);
+        fetch(baseUrl + '/books?logbook-session=' + token, {
+            method: "GET",
+            headers: {
+                "Accept": "application/json",
+                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+            }
+        }).then(function(response) {
+            return response.json();
+        }).then(function(books) {
+            resolve(books);
+        }).catch(function(err) {
+            console.log("Error getting books: " + JSON.stringify(err));
         });
     });
 }
 
 module.exports = {
-    login: login
+    login: login,
+    getBooks: getBooks
 };

@@ -1,3 +1,24 @@
 <Page ux:Class="HomePage">
-  <Router ux:Dependency="router"/>
+    <Router ux:Dependency="router"/>
+
+    <JavaScript File="HomePage.js"/>
+
+    <DockPanel>
+        <logbook.Text FontSize="30" TextAlignment="Center" Dock="Top" Margin="0,50">My books</logbook.Text>
+        <ScrollView>
+            <StackPanel>
+                <Rectangle ux:Class="Separator" Height="1" Fill="#fff4"/>
+                <Each Items="{books}">
+                    <Separator/>
+                    <Panel HitTestMode="LocalBoundsAndChildren">
+                        <logbook.Text Value="{title} - {description}" Margin="20" TextWrapping="Wrap"/>
+                        <WhilePressed>
+                            <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
+                        </WhilePressed>
+                    </Panel>
+                </Each>
+                <Separator/>
+            </StackPanel>
+        </ScrollView>
+    </DockPanel>
 </Page>

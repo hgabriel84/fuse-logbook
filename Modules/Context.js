@@ -14,6 +14,23 @@ function login(username, password) {
     });
 }
 
+function getBooks() {
+    return new Promise((resolve, reject) => {
+        var tokenFromStorage = StorageHandler.getTokenFromStorage();
+        console.log(tokenFromStorage);
+        if (tokenFromStorage != null) {
+            RestApi.getBooks(tokenFromStorage)
+                .then(books =>
+                    resolve(books)
+                )
+                .catch(error =>
+                    console.log("Couldn't get books: " + error)
+                );
+        }
+    });
+}
+
 module.exports = {
-    login: login
+    login: login,
+    getBooks: getBooks
 };
