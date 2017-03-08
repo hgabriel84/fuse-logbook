@@ -2,6 +2,13 @@ const baseUrl = "http://localhost:9000";
 
 var isLoggingIn = false;
 
+function getHeaders() {
+    return {
+        "Accept": "application/json",
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+    };
+}
+
 function login(username, password) {
     var details = {
         'username': username,
@@ -15,41 +22,17 @@ function login(username, password) {
     }
     formBody = formBody.join("&");
 
-    return new Promise((resolve, reject) => {
-        fetch(baseUrl + '/auth/login', {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-            },
-            body: formBody
-        }).then(function(response) {
-            return response.json();
-        }).then(function(r) {
-            resolve(r.token);
-        }).catch(function(err) {
-            isLoggingIn = false;
-            console.log("Error logging in: " + JSON.stringify(err));
-        });
+    return fetch(baseUrl + '/auth/login', {
+        method: "POST",
+        headers: getHeaders(),
+        body: formBody
     });
 }
 
 function getBooks(token) {
-    return new Promise((resolve, reject) => {
-        console.log(baseUrl + '/books?logbook-session=' + token);
-        fetch(baseUrl + '/books?logbook-session=' + token, {
-            method: "GET",
-            headers: {
-                "Accept": "application/json",
-                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-            }
-        }).then(function(response) {
-            return response.json();
-        }).then(function(books) {
-            resolve(books);
-        }).catch(function(err) {
-            console.log("Error getting books: " + JSON.stringify(err));
-        });
+    return fetch(baseUrl + '/books?logbook-session=' + token, {
+        method: "GET",
+        headers: getHeaders()
     });
 }
 

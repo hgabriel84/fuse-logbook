@@ -3,25 +3,25 @@ var Storage = require("FuseJS/Storage");
 var tokenFilename = "tokenFilename";
 
 function getTokenFromStorage() {
-	var c = Storage.readSync(tokenFilename);
-	if (c !== null && c !== "") {
-		return JSON.parse(c);
-	}
-	return null;
+    var c = Storage.readSync(tokenFilename);
+    if (c !== null && c !== "") {
+        return JSON.parse(c);
+    }
+    return null;
 }
 
-function deleteTokenFromStorage(){
-	Storage.deleteSync(tokenFilename);
+function deleteTokenFromStorage() {
+    Storage.deleteSync(tokenFilename);
 }
 
-function saveTokenToStorage(token){
-	deleteTokenFromStorage();
+function saveTokenToStorage(token) {
+    deleteTokenFromStorage();
 
-	if (Storage.writeSync(tokenFilename, JSON.stringify(token))) {
-		return true;
-	} else {
-		return false;
-	}
+    if (Storage.writeSync(tokenFilename, JSON.stringify(token))) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 module.exports = {

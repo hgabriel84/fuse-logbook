@@ -6,13 +6,16 @@ var password = Observable();
 
 function login() {
     Context.login(username.value, password.value)
-        .then(() =>
-            router.push("home")
-        )
-        .catch(error =>
-            //TODO show error in page
-            console.log(error)
-        );
+        .then(() => navigateToHome())
+        .catch(error => showError(error));
+}
+
+function navigateToHome() {
+    router.push("home")
+}
+
+function showError(error) {
+    console.log("LoginPage login error: " + error)
 }
 
 module.exports = {
