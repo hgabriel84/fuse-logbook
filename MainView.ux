@@ -6,11 +6,11 @@
 
     <ClientPanel>
         <Navigator DefaultPath="splash">
-            <HomePage ux:Template="home" router="router"/>
+            <MainPage ux:Template="main" router="router"/>
             <LoginPage ux:Template="login" router="router"/>
             <SplashPage ux:Template="splash" router="router"/>
-            <AddBookPage ux:Template="addBook" router="router"/>
-            <BookEntriesPage ux:Template="bookEntries" router="router"/>
+            <AddLogbookPage ux:Template="addLogbook" router="router"/>
+            <LogbookEntriesPage ux:Template="logbookEntries" router="router"/>
         </Navigator>
     </ClientPanel>
 </App>

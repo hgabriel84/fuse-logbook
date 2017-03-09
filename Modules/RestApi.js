@@ -2,9 +2,9 @@ const baseUrl = "http://localhost:9000";
 
 function login(username, password, rememberMe) {
     var parameters = {
-        'username': username,
-        'password': password,
-        'rememberMe': rememberMe
+        "username": username,
+        "password": password,
+        "rememberMe": rememberMe
     };
 
     var formBody = [];
@@ -13,7 +13,7 @@ function login(username, password, rememberMe) {
     }
     formBody = formBody.join("&");
 
-    return fetch(baseUrl + '/auth/login', {
+    return fetch(baseUrl + "/auth/login", {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -23,8 +23,8 @@ function login(username, password, rememberMe) {
     });
 }
 
-function getBooks(token) {
-    return fetch(baseUrl + '/books?logbook-session=' + token, {
+function getLogbooks(token) {
+    return fetch(baseUrl + "/books?logbook-session=" + token, {
         method: "GET",
         headers: {
             "Accept": "application/json"
@@ -32,8 +32,8 @@ function getBooks(token) {
     });
 }
 
-function createBook(title, description, token) {
-    return fetch(baseUrl + '/books?logbook-session=' + token, {
+function createLogbook(title, description, token) {
+    return fetch(baseUrl + "/books?logbook-session=" + token, {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -46,8 +46,18 @@ function createBook(title, description, token) {
     });
 }
 
+function getLogbookEntries(logbookId, token) {
+    return fetch(baseUrl + "/books/" + logbookId + "/entries?logbook-session=" + token, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+}
+
 module.exports = {
     login: login,
-    getBooks: getBooks,
-    createBook: createBook
+    getLogbooks: getLogbooks,
+    createLogbook: createLogbook,
+    getLogbookEntries: getLogbookEntries
 };

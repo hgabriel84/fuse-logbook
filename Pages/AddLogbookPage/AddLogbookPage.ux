@@ -1,11 +1,11 @@
-<Page ux:Class="AddBookPage">
+<Page ux:Class="AddLogbookPage">
     <Router ux:Dependency="router"/>
 
-    <JavaScript File="AddBookPage.js"/>
+    <JavaScript File="AddLogbookPage.js"/>
 
     <DockPanel>
         <Grid ColumnCount="2" Dock="Bottom">
-            <logbook.Button Text="Save" Clicked="{createBook}"/>
+            <logbook.Button Text="Save" Clicked="{createLogbook}"/>
             <logbook.Button Text="Cancel" Clicked="{cancel}"/>
         </Grid>
         <StackPanel ItemSpacing="10" Padding="10">

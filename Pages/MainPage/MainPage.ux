@@ -1,12 +1,12 @@
-<Page ux:Class="HomePage">
+<Page ux:Class="MainPage">
     <Router ux:Dependency="router"/>
 
-    <JavaScript File="HomePage.js"/>
+    <JavaScript File="MainPage.js"/>
 
     <DockPanel>
         <DockPanel Dock="Top" Margin="10">
             <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.PrimaryDark" Value="Logbooks"/>
-            <logbook.Text FontSize="14" Dock="Right" Alignment="VerticalCenter" Value="Add" Clicked="{goToAddBook}">
+            <logbook.Text FontSize="14" Dock="Right" Alignment="VerticalCenter" Value="Add" Clicked="{goToAddLogbook}">
                 <WhilePressed>
                     <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
                 </WhilePressed>
@@ -15,9 +15,9 @@
         <ScrollView>
             <StackPanel>
                 <Rectangle ux:Class="Separator" Height="1" Fill="#fff4"/>
-                <Each Items="{books}">
+                <Each Items="{logbooks}">
                     <Separator/>
-                    <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0" Clicked="{goToBookEntries}">
+                    <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0" Clicked="{goToLogbookEntries}">
                         <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
                         <logbook.Text Value="{description}" FontSize="12" Margin="0,0,0,5" TextWrapping="Wrap"/>
                         <WhilePressed>

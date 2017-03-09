@@ -22,43 +22,60 @@ function onLoginError(err) {
     console.log("Error logging in: " + JSON.stringify(err));
 }
 
-function getBooks() {
+function getLogbooks() {
     return new Promise((resolve, reject) => {
         var tokenFromStorage = StorageHandler.getTokenFromStorage();
         if (tokenFromStorage != null) {
-            RestApi.getBooks(tokenFromStorage)
+            RestApi.getLogbooks(tokenFromStorage)
                 .then(response => response.json())
-                .then(books => resolve(books))
-                .catch(error => onGetBooksError(error))
+                .then(logbooks => resolve(logbooks))
+                .catch(error => onGetLogbooksError(error))
         }
     });
 }
 
-function onGetBooksError(err) {
-    console.log("Couldn't get books: " + error)
+function onGetLogbooksError(err) {
+    console.log("Couldn't get logbooks: " + error)
 }
 
-function createBook(title, description) {
+function createLogbook(title, description) {
     return new Promise((resolve, reject) => {
         var tokenFromStorage = StorageHandler.getTokenFromStorage();
         if (tokenFromStorage != null) {
-            RestApi.createBook(title, description, tokenFromStorage)
+            RestApi.createLogbook(title, description, tokenFromStorage)
                 .then(response => response.json())
-                .then(book => resolve(book.title))
+                .then(logbook => resolve(logbook.title))
                 .catch(error => {
-                    onCreateBookError(error);
+                    onCreateLogbookError(error);
                     reject(error);
                 });
         }
     });
 }
 
-function onCreateBookError(err) {
-    console.log("Error creating book: " + JSON.stringify(err));
+function onCreateLogbookError(err) {
+    console.log("Error creating logbook: " + JSON.stringify(err));
+}
+
+function getLogbookEntries(logbookId) {
+    return new Promise((resolve, reject) => {
+        var tokenFromStorage = StorageHandler.getTokenFromStorage();
+        if (tokenFromStorage != null) {
+            RestApi.getLogbookEntries(logbookId, tokenFromStorage)
+                .then(response => response.json())
+                .then(logbookEntries => resolve(logbookEntries))
+                .catch(error => onGetLogbookEntriesError(error))
+        }
+    });
+}
+
+function onGetLogbookEntriesError(err) {
+    console.log("Couldn't get logbook entries: " + error)
 }
 
 module.exports = {
     login: login,
-    getBooks: getBooks,
-    createBook: createBook
+    getLogbooks: getLogbooks,
+    createLogbook: createLogbook,
+    getLogbookEntries: getLogbookEntries
 };

@@ -4,20 +4,20 @@ var Context = require("Modules/Context");
 var title = Observable();
 var description = Observable();
 
-function createBook() {
-    Context.createBook(title.value, description.value)
-        .then(title => onCreateBookSuccess(title))
+function createLogbook() {
+    Context.createLogbook(title.value, description.value)
+        .then(title => onCreateLogbookSuccess(title))
         .catch(error => showError(error));
 }
 
-function onCreateBookSuccess(title) {
+function onCreateLogbookSuccess(title) {
     //TODO show on book success message
     router.push("home")
 }
 
 function showError(error) {
     //TODO show error
-    console.log("AddBookPage add book error: " + error)
+    console.log("AddLogbookPage add book error: " + error)
 }
 
 function cancel() {
@@ -28,6 +28,6 @@ module.exports = {
     title: title,
     description: description,
 
-    createBook: createBook,
+    createLogbook: createLogbook,
     cancel: cancel
 };

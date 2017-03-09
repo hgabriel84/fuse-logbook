@@ -26,6 +26,5 @@ function saveTokenToStorage(token) {
 
 module.exports = {
     getTokenFromStorage: getTokenFromStorage,
-    deleteTokenFromStorage: deleteTokenFromStorage,
     saveTokenToStorage: saveTokenToStorage
 };
