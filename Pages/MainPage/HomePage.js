@@ -11,6 +11,16 @@ function onGetBooksError(error) {
     console.log("Error getting books: " + error);
 }
 
+function goToAddBook() {
+    router.push("addBook")
+}
+
+function goToBookEntries() {
+    router.push("bookEntries")
+}
+
 module.exports = {
-    books: books
+    books: books,
+    goToAddBook: goToAddBook,
+    goToBookEntries: goToBookEntries
 };

@@ -5,10 +5,12 @@
     <Router ux:Name="router"/>
 
     <ClientPanel>
-        <Navigator DefaultPath="splash">
+        <Navigator DefaultPath="home">
             <HomePage ux:Template="home" router="router"/>
             <LoginPage ux:Template="login" router="router"/>
             <SplashPage ux:Template="splash" router="router"/>
+            <AddBookPage ux:Template="addBook" router="router"/>
+            <BookEntriesPage ux:Template="bookEntries" router="router"/>
         </Navigator>
     </ClientPanel>
 </App>

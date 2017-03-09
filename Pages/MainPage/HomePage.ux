@@ -4,18 +4,26 @@
     <JavaScript File="HomePage.js"/>
 
     <DockPanel>
-        <logbook.Text FontSize="30" TextAlignment="Center" Dock="Top" Margin="0,50">My books</logbook.Text>
+        <DockPanel Dock="Top" Margin="10">
+            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Value="Logbooks"/>
+            <logbook.Text FontSize="14" Dock="Right" Alignment="VerticalCenter" Value="Add" Clicked="{goToAddBook}">
+                <WhilePressed>
+                    <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
+                </WhilePressed>
+            </logbook.Text>
+        </DockPanel>
         <ScrollView>
             <StackPanel>
                 <Rectangle ux:Class="Separator" Height="1" Fill="#fff4"/>
                 <Each Items="{books}">
                     <Separator/>
-                    <Panel HitTestMode="LocalBoundsAndChildren">
-                        <logbook.Text Value="{title} - {description}" Margin="20" TextWrapping="Wrap"/>
+                    <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0" Clicked="{goToBookEntries}">
+                        <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                        <logbook.Text Value="{description}" FontSize="12" Margin="0,0,0,5" TextWrapping="Wrap"/>
                         <WhilePressed>
                             <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
                         </WhilePressed>
-                    </Panel>
+                    </StackPanel>
                 </Each>
                 <Separator/>
             </StackPanel>

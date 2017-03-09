@@ -1,0 +1,5 @@
+<Page ux:Class="BookEntriesPage">
+    <Router ux:Dependency="router"/>
+
+    <JavaScript File="BookEntriesPage.js"/>
+</Page>

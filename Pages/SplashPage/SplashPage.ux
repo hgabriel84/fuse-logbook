@@ -7,6 +7,6 @@
             <logbook.LogoText/>
         </StackPanel>
 
-        <logbook.Text Dock="Bottom" Margin="10" Opacity=".5" TextAlignment="Center" FontSize="12">made with Fuse</logbook.Text>
+        <logbook.Text Dock="Bottom" Margin="10" Opacity=".5" TextAlignment="Center" FontSize="12" Value="made with Fuse" />
     </DockPanel>
 </Page>
