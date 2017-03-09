@@ -1,0 +1,3 @@
+<TextView ux:Class="logbook.TextView" TextColor="Color.Primary" CaretColor="Color.Primary" Padding="5">
+    <Rectangle Layer="Background" Color="Color.Border" CornerRadius="4"/>
+</TextView>

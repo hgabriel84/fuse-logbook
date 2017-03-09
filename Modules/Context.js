@@ -3,7 +3,7 @@ var StorageHandler = require("Modules/StorageHandler")
 
 function login(username, password) {
     return new Promise((resolve, reject) => {
-        RestApi.login(username, password)
+        RestApi.login(username, password, false)
             .then(response => response.json())
             .then(response => onLoginSuccess(response.token))
             .then(() => resolve())
@@ -38,7 +38,27 @@ function onGetBooksError(err) {
     console.log("Couldn't get books: " + error)
 }
 
+function createBook(title, description) {
+    return new Promise((resolve, reject) => {
+        var tokenFromStorage = StorageHandler.getTokenFromStorage();
+        if (tokenFromStorage != null) {
+            RestApi.createBook(title, description, tokenFromStorage)
+                .then(response => response.json())
+                .then(book => resolve(book.title))
+                .catch(error => {
+                    onCreateBookError(error);
+                    reject(error);
+                });
+        }
+    });
+}
+
+function onCreateBookError(err) {
+    console.log("Error creating book: " + JSON.stringify(err));
+}
+
 module.exports = {
     login: login,
-    getBooks: getBooks
+    getBooks: getBooks,
+    createBook: createBook
 };

@@ -15,6 +15,7 @@ function navigateToHome() {
 }
 
 function showError(error) {
+  //TODO show error
     console.log("LoginPage login error: " + error)
 }
 

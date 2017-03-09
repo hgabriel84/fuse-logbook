@@ -5,7 +5,7 @@
     <Router ux:Name="router"/>
 
     <ClientPanel>
-        <Navigator DefaultPath="home">
+        <Navigator DefaultPath="splash">
             <HomePage ux:Template="home" router="router"/>
             <LoginPage ux:Template="login" router="router"/>
             <SplashPage ux:Template="splash" router="router"/>

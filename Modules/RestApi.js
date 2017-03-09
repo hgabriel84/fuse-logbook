@@ -1,30 +1,24 @@
 const baseUrl = "http://localhost:9000";
 
-var isLoggingIn = false;
-
-function getHeaders() {
-    return {
-        "Accept": "application/json",
-        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-    };
-}
-
-function login(username, password) {
-    var details = {
+function login(username, password, rememberMe) {
+    var parameters = {
         'username': username,
         'password': password,
-        'rememberMe': false
+        'rememberMe': rememberMe
     };
 
     var formBody = [];
-    for (var property in details) {
-        formBody.push(property + "=" + details[property]);
+    for (var parameter in parameters) {
+        formBody.push(parameter + "=" + parameters[parameter]);
     }
     formBody = formBody.join("&");
 
     return fetch(baseUrl + '/auth/login', {
         method: "POST",
-        headers: getHeaders(),
+        headers: {
+            "Accept": "application/json",
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        },
         body: formBody
     });
 }
@@ -32,11 +26,28 @@ function login(username, password) {
 function getBooks(token) {
     return fetch(baseUrl + '/books?logbook-session=' + token, {
         method: "GET",
-        headers: getHeaders()
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+}
+
+function createBook(title, description, token) {
+    return fetch(baseUrl + '/books?logbook-session=' + token, {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify({
+            title: title,
+            description: description
+        })
     });
 }
 
 module.exports = {
     login: login,
-    getBooks: getBooks
+    getBooks: getBooks,
+    createBook: createBook
 };

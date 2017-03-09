@@ -2,4 +2,23 @@
     <Router ux:Dependency="router"/>
 
     <JavaScript File="AddBookPage.js"/>
+
+    <DockPanel>
+        <Grid ColumnCount="2" Dock="Bottom">
+            <logbook.Button Text="Save" Clicked="{createBook}"/>
+            <logbook.Button Text="Cancel" Clicked="{cancel}"/>
+        </Grid>
+        <StackPanel ItemSpacing="10" Padding="10">
+            <logbook.Text ux:Class="TitleText" FontSize="16" Margin="0,0,0,5"/>
+            <StackPanel>
+                <TitleText Value="Title:"/>
+                <logbook.TextBox Padding="10,10,0,10" Value="{title}"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TitleText Value="Description:"/>
+                <logbook.TextView BoxSizing="FillAspect" Value="{description}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
 </Page>
