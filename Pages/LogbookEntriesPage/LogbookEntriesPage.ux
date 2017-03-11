@@ -1,4 +1,4 @@
-<Page ux:Class="LogbookEntriesPage">
+<Page ux:Class="LogbookEntriesPage" Reuse="None">
     <Router ux:Dependency="router"/>
 
     <JavaScript File="LogbookEntriesPage.js"/>

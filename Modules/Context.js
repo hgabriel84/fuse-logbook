@@ -77,7 +77,6 @@ function createEntry(logbookId, title, description) {
     return new Promise((resolve, reject) => {
         var tokenFromStorage = StorageHandler.getTokenFromStorage();
         if (tokenFromStorage != null) {
-            console.log("CONTEXT " + logbookId + " " + title + " " + description + " " + tokenFromStorage);
             RestApi.createEntry(logbookId, title, description, tokenFromStorage)
                 .then(response => response.json())
                 .then(entry => resolve(entry.title))

@@ -3,6 +3,10 @@
 
     <JavaScript File="MainPage.js"/>
 
+    <Activated>
+        <Callback Handler="{getLogbooks}"/>
+    </Activated>
+
     <DockPanel>
         <DockPanel Dock="Top" Padding="10" Color="Color.Text">
             <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="logbooks"/>

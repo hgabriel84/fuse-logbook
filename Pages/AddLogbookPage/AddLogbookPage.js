@@ -1,8 +1,8 @@
 var Observable = require("FuseJS/Observable");
 var Context = require("Modules/Context");
 
-var title = Observable();
-var description = Observable();
+var title = Observable("");
+var description = Observable("");
 
 function createLogbook() {
     Context.createLogbook(title.value, description.value)
@@ -12,12 +12,12 @@ function createLogbook() {
 
 function onCreateLogbookSuccess(title) {
     //TODO show on book success message
-    router.push("home")
+    router.goto("main");
 }
 
 function showError(error) {
     //TODO show error
-    console.log("AddLogbookPage add book error: " + error)
+    console.log("AddLogbookPage add book error: " + error);
 }
 
 function cancel() {

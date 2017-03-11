@@ -1,8 +1,8 @@
 var Observable = require("FuseJS/Observable");
 var Context = require("Modules/Context");
 
-var username = Observable();
-var password = Observable();
+var username = Observable("");
+var password = Observable("");
 
 function login() {
     Context.login(username.value, password.value)

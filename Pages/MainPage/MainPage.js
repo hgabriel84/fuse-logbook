@@ -3,9 +3,13 @@ var Context = require("Modules/Context");
 
 var logbooks = Observable();
 
-Context.getLogbooks()
-    .then(newLogbooks => logbooks.replaceAll(newLogbooks))
-    .catch(error => onGetLogbooksError(error));
+function getLogbooks() {
+    Context.getLogbooks()
+        .then(newLogbooks => {
+            logbooks.replaceAll(newLogbooks);
+        })
+        .catch(error => onGetLogbooksError(error));
+}
 
 function onGetLogbooksError(error) {
     console.log("Error getting logbooks: " + error);
@@ -22,6 +26,7 @@ function goToLogbookEntries(arg) {
 
 module.exports = {
     logbooks: logbooks,
+    getLogbooks: getLogbooks,
     goToAddLogbook: goToAddLogbook,
     goToLogbookEntries: goToLogbookEntries
 };
