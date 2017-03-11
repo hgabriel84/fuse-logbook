@@ -55,9 +55,24 @@ function getLogbookEntries(logbookId, token) {
     });
 }
 
+function createEntry(logbookId, title, description, token) {
+    return fetch(baseUrl + "/books/" + logbookId + "/entries?logbook-session=" + token, {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify({
+            title: title,
+            description: description
+        })
+    });
+}
+
 module.exports = {
     login: login,
     getLogbooks: getLogbooks,
     createLogbook: createLogbook,
-    getLogbookEntries: getLogbookEntries
+    getLogbookEntries: getLogbookEntries,
+    createEntry: createEntry
 };

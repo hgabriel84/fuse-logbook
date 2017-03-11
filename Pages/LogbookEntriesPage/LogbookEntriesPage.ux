@@ -4,19 +4,23 @@
     <JavaScript File="LogbookEntriesPage.js"/>
 
     <DockPanel>
-        <DockPanel Dock="Top" Margin="10">
-            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.PrimaryDark" Value="{logbookTitle}"/>
+        <DockPanel Dock="Top" Padding="10" Color="Color.Text">
+            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="{logbookTitle}"/>
         </DockPanel>
+        <logbook.Button Dock="Bottom" Text="NEW ENTRY" Clicked="{goToAddEntry}"/>
         <ScrollView>
             <StackPanel>
                 <Each Items="{logbookEntries}">
-                    <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0">
-                        <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                        <logbook.Text Value="{description}" FontSize="12" Margin="0,0,0,5" TextWrapping="Wrap"/>
-                        <WhilePressed>
-                            <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
-                        </WhilePressed>
-                    </StackPanel>
+                    <Rectangle Margin="10">
+                        <Stroke Width="1" Color="Color.Text"/>
+                        <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0">
+                            <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                            <logbook.Text Value="{description}" FontSize="12" Margin="0,0,0,5" TextWrapping="Wrap"/>
+                            <WhilePressed>
+                                <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
+                            </WhilePressed>
+                        </StackPanel>
+                    </Rectangle>
                 </Each>
             </StackPanel>
         </ScrollView>

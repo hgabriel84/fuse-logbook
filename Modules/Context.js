@@ -73,9 +73,30 @@ function onGetLogbookEntriesError(err) {
     console.log("Couldn't get logbook entries: " + error)
 }
 
+function createEntry(logbookId, title, description) {
+    return new Promise((resolve, reject) => {
+        var tokenFromStorage = StorageHandler.getTokenFromStorage();
+        if (tokenFromStorage != null) {
+            console.log("CONTEXT " + logbookId + " " + title + " " + description + " " + tokenFromStorage);
+            RestApi.createEntry(logbookId, title, description, tokenFromStorage)
+                .then(response => response.json())
+                .then(entry => resolve(entry.title))
+                .catch(error => {
+                    onCreateEntryError(error);
+                    reject(error);
+                });
+        }
+    });
+}
+
+function onCreateEntryError(err) {
+    console.log("Error creating entry: " + JSON.stringify(err));
+}
+
 module.exports = {
     login: login,
     getLogbooks: getLogbooks,
     createLogbook: createLogbook,
-    getLogbookEntries: getLogbookEntries
+    getLogbookEntries: getLogbookEntries,
+    createEntry: createEntry
 };

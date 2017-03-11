@@ -1,1 +1,1 @@
-<Text ux:Class="logbook.LogoText" Value="logbook" FontSize="70" TextAlignment="Center" Color="Color.Primary"/>
+<Text ux:Class="logbook.LogoText" Value="logbook" FontSize="70" TextAlignment="Center" Color="Color.Text"/>

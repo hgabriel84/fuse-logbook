@@ -11,7 +11,7 @@ function login() {
 }
 
 function navigateToMainPage() {
-    router.push("main")
+    router.goto("main")
 }
 
 function showError(error) {

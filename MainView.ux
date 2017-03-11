@@ -1,6 +1,6 @@
-<App Background="Color.Background">
+<App Background="Color.Primary">
     <iOS.StatusBarConfig Style="Light"/>
-    <Android.StatusBarConfig Color="Color.Background"/>
+    <Android.StatusBarConfig Color="Color.Primary"/>
 
     <Router ux:Name="router"/>
 
@@ -11,6 +11,7 @@
             <SplashPage ux:Template="splash" router="router"/>
             <AddLogbookPage ux:Template="addLogbook" router="router"/>
             <LogbookEntriesPage ux:Template="logbookEntries" router="router"/>
+            <AddEntryPage ux:Template="addEntryPage" router="router"/>
         </Navigator>
     </ClientPanel>
 </App>

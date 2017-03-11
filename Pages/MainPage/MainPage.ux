@@ -4,17 +4,13 @@
     <JavaScript File="MainPage.js"/>
 
     <DockPanel>
-        <DockPanel Dock="Top" Margin="10">
-            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.PrimaryDark" Value="Logbooks"/>
-            <logbook.Text FontSize="14" Dock="Right" Alignment="VerticalCenter" Value="Add" Clicked="{goToAddLogbook}">
-                <WhilePressed>
-                    <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
-                </WhilePressed>
-            </logbook.Text>
+        <DockPanel Dock="Top" Padding="10" Color="Color.Text">
+            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="logbooks"/>
         </DockPanel>
+        <logbook.Button Dock="Bottom" Text="ADD" Clicked="{goToAddLogbook}"/>
         <ScrollView>
             <StackPanel>
-                <Rectangle ux:Class="Separator" Height="1" Fill="#fff4"/>
+                <Rectangle ux:Class="Separator" Height="1" Fill="#FFF2"/>
                 <Each Items="{logbooks}">
                     <Separator/>
                     <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0" Clicked="{goToLogbookEntries}">

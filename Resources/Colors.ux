@@ -1,8 +1,7 @@
 <Panel ux:Class="logbook.Colors">
-    <float4 ux:Global="Color.Primary" ux:Value="#FFFFFF"/>
-    <float4 ux:Global="Color.PrimaryDark" ux:Value="#008BDF"/>
-    <float4 ux:Global="Color.Accent" ux:Value="#FFFFFF"/>
-    <float4 ux:Global="Color.Background" ux:Value="#022328"/>
+    <float4 ux:Global="Color.Primary" ux:Value="#43A5F0"/>
+    <float4 ux:Global="Color.PrimaryDark" ux:Value="#F2AC35"/>
+    <float4 ux:Global="Color.Text" ux:Value="#FFFFFF"/>
     <float4 ux:Global="Color.Border" ux:Value="#FFF2"/>
     <float4 ux:Global="Color.ButtonBorder" ux:Value="#00000060"/>
 </Panel>
