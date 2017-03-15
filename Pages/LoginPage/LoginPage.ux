@@ -7,10 +7,10 @@
         <Grid Rows="1.5*,auto,1*">
 
             <Grid ux:Name="loginArea" Row="1" Padding="20,20" RowCount="2" Columns="auto,1*" Height="160" MaxWidth="400">
-                <Image Row="0" Column="0" File="../../Assets/user_icon.png" Width="20" Height="20" Margin="10,0,30,0" Alignment="Left"/>
+                <logbook.UserIcon Row="0" Column="0" Margin="10,0,30,0" Alignment="Left"/>
                 <TextInput Row="0" Column="1" Value="{username}" PlaceholderText="EMAIL" PlaceholderColor="Color.PrimaryDark" TextColor="Color.Text" CaretColor="Color.Text"/>
                 <Rectangle Row="0" Column="0" Alignment="Bottom" ColumnSpan="2" Height="1" Color="Color.Text"/>
-                <Image Row="1" Column="0" File="../../Assets/password_icon.png" Width="20" Height="20" Margin="10,0,30,0" Alignment="Left"/>
+                <logbook.PasswordIcon Row="1" Column="0" Margin="10,0,30,0" Alignment="Left"/>
                 <TextInput Row="1" Column="1" Value="{password}" PlaceholderText="PASSWORD" PlaceholderColor="Color.PrimaryDark" TextColor="Color.Text" CaretColor="Color.Text" IsPassword="true"/>
                 <Rectangle Row="1" Column="0" Alignment="Bottom" ColumnSpan="2" Height="1" Color="Color.Text"/>
             </Grid>

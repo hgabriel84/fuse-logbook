@@ -4,14 +4,17 @@
 
     <Router ux:Name="router"/>
 
-    <ClientPanel>
-        <Navigator DefaultPath="splash">
-            <MainPage ux:Template="main" router="router"/>
+    <DockPanel>
+      <StatusBarBackground Dock="Top" />
+      <NavBar ux:Name="navBar" Dock="Top" />
+
+        <Navigator DefaultPath="main">
+            <MainPage ux:Template="main" router="router" navBar="navBar"/>
             <LoginPage ux:Template="login" router="router"/>
             <SplashPage ux:Template="splash" router="router"/>
-            <AddLogbookPage ux:Template="addLogbook" router="router"/>
-            <LogbookEntriesPage ux:Template="logbookEntries" router="router"/>
-            <AddEntryPage ux:Template="addEntryPage" router="router"/>
+            <AddLogbookPage ux:Template="addLogbook" router="router" navBar="navBar"/>
+            <LogbookEntriesPage ux:Template="logbookEntries" router="router" navBar="navBar"/>
+            <AddEntryPage ux:Template="addEntryPage" router="router" navBar="navBar"/>
         </Navigator>
-    </ClientPanel>
+    </DockPanel>
 </App>

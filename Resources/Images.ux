@@ -1,0 +1,27 @@
+<Panel ux:Class="logbook.Images">
+
+    <Image ux:Class="logbook.UserIcon" StretchMode="PixelPrecise">
+        <MultiDensityImageSource>
+            <FileImageSource File="../Assets/user_icon.png" Density="1"/>
+            <FileImageSource File="../Assets/user_icon@2x.png" Density="2"/>
+            <FileImageSource File="../Assets/user_icon@3x.png" Density="3"/>
+        </MultiDensityImageSource>
+    </Image>
+
+    <Image ux:Class="logbook.PasswordIcon" StretchMode="PixelPrecise">
+        <MultiDensityImageSource>
+            <FileImageSource File="../Assets/password_icon.png" Density="1"/>
+            <FileImageSource File="../Assets/password_icon@2x.png" Density="2"/>
+            <FileImageSource File="../Assets/password_icon@3x.png" Density="3"/>
+        </MultiDensityImageSource>
+    </Image>
+
+    <Image ux:Class="logbook.DeleteIcon" StretchMode="PixelPrecise">
+        <MultiDensityImageSource>
+            <FileImageSource File="../Assets/delete_icon.png" Density="1"/>
+            <FileImageSource File="../Assets/delete_icon@2x.png" Density="2"/>
+            <FileImageSource File="../Assets/delete_icon@3x.png" Density="3"/>
+        </MultiDensityImageSource>
+    </Image>
+
+</Panel>

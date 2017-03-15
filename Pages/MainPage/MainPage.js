@@ -22,6 +22,11 @@ function goToLogbookEntries(arg) {
     router.push("logbookEntries", logbook);
 }
 
+function deleteLogbook(arg) {
+  var logbook = arg.data;
+  Context.deleteLogbook(logbook.uid);
+}
+
 // PULL TO RELOAD METHODS
 var isLoading = Observable(false);
 
@@ -42,6 +47,7 @@ module.exports = {
     getLogbooks: getLogbooks,
     goToAddLogbook: goToAddLogbook,
     goToLogbookEntries: goToLogbookEntries,
+    deleteLogbook: deleteLogbook,
     reloadBooks: reloadBooks,
     isLoading: isLoading
 };

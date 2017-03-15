@@ -57,11 +57,29 @@ function onCreateLogbookError(err) {
     console.log("Error creating logbook: " + JSON.stringify(err));
 }
 
-function getLogbookEntries(logbookId) {
+function deleteLogbook(logbookId) {
     return new Promise((resolve, reject) => {
         var tokenFromStorage = StorageHandler.getTokenFromStorage();
         if (tokenFromStorage != null) {
-            RestApi.getLogbookEntries(logbookId, tokenFromStorage)
+            RestApi.deleteLogbook(logbookId, tokenFromStorage)
+                .then(() => resolve())
+                .catch(error => {
+                    onDeleteBookError(error);
+                    reject(error);
+                });
+        }
+    });
+}
+
+function onDeleteBookError(err) {
+    console.log("Error deleting book entry: " + JSON.stringify(err));
+}
+
+function getEntries(logbookId) {
+    return new Promise((resolve, reject) => {
+        var tokenFromStorage = StorageHandler.getTokenFromStorage();
+        if (tokenFromStorage != null) {
+            RestApi.getEntries(logbookId, tokenFromStorage)
                 .then(response => response.json())
                 .then(logbookEntries => resolve(logbookEntries))
                 .catch(error => onGetLogbookEntriesError(error))
@@ -92,10 +110,30 @@ function onCreateEntryError(err) {
     console.log("Error creating entry: " + JSON.stringify(err));
 }
 
+function deleteEntry(logbookId, entryId) {
+    return new Promise((resolve, reject) => {
+        var tokenFromStorage = StorageHandler.getTokenFromStorage();
+        if (tokenFromStorage != null) {
+            RestApi.deleteEntry(logbookId, entryId, tokenFromStorage)
+                .then(() => resolve())
+                .catch(error => {
+                    onDeleteEntryError(error);
+                    reject(error);
+                });
+        }
+    });
+}
+
+function onDeleteEntryError(err) {
+    console.log("Error deleting book entry: " + JSON.stringify(err));
+}
+
 module.exports = {
     login: login,
     getLogbooks: getLogbooks,
     createLogbook: createLogbook,
-    getLogbookEntries: getLogbookEntries,
-    createEntry: createEntry
+    deleteLogbook: deleteLogbook,
+    getEntries: getEntries,
+    createEntry: createEntry,
+    deleteEntry: deleteEntry
 };

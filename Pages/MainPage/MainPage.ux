@@ -1,5 +1,6 @@
 <Page ux:Class="MainPage">
     <Router ux:Dependency="router"/>
+    <Visual ux:Dependency="navBar"/>
 
     <JavaScript File="MainPage.js"/>
 
@@ -7,10 +8,9 @@
         <Callback Handler="{getLogbooks}"/>
     </Activated>
 
+    <NavBarTitle navBar="navBar" Text="logbooks"/>
+
     <DockPanel>
-        <DockPanel Dock="Top" Padding="10" Color="Color.Text">
-            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="logbooks"/>
-        </DockPanel>
         <logbook.Button Dock="Bottom" Text="ADD" Clicked="{goToAddLogbook}"/>
         <ScrollView>
             <PullToReload IsLoading="{isLoading}" ReloadHandler="{reloadBooks}"/>
@@ -18,13 +18,16 @@
                 <Rectangle ux:Class="Separator" Height="1" Fill="#FFF2"/>
                 <Each Items="{logbooks}">
                     <Separator/>
-                    <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0" Clicked="{goToLogbookEntries}">
-                        <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                        <logbook.Text Value="{description}" FontSize="12" Margin="0,0,0,5" TextWrapping="Wrap"/>
+                    <DockPanel HitTestMode="LocalBoundsAndChildren" Padding="10,10,10,10" Clicked="{goToLogbookEntries}">
+                        <Image Dock="Left" File="../../Assets/book_icon.png" Height="24" Width="24"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <logbook.Text Value="{title}" FontSize="16" TextWrapping="Wrap"/>
+                            <logbook.Text Value="{description}" FontSize="12" TextWrapping="Wrap"/>
+                        </StackPanel>
                         <WhilePressed>
                             <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
                         </WhilePressed>
-                    </StackPanel>
+                    </DockPanel>
                 </Each>
                 <Separator/>
             </StackPanel>

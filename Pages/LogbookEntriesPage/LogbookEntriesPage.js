@@ -4,21 +4,21 @@ var Context = require("Modules/Context");
 var logbookEntries = Observable();
 
 var logbook = this.Parameter.map(x => {
-    Context.getLogbookEntries(x.uid)
-        .then(newLogbookEntries => getLogbookEntriesSuccess(newLogbookEntries))
-        .catch(error => getLogbookEntriesError(error));
+    Context.getEntries(x.uid)
+        .then(newLogbookEntries => getEntriesSuccess(newLogbookEntries))
+        .catch(error => getEntriesError(error));
     return x;
 });
 var logbookTitle = logbook.map(x => x.title);
 
-function getLogbookEntriesSuccess(newLogbookEntries) {
+function getEntriesSuccess(newLogbookEntries) {
     newLogbookEntries.map(x => {
         x.creation_timestamp = new Date(x.creation_timestamp).toDateString();
     });
     logbookEntries.replaceAll(newLogbookEntries);
 }
 
-function getLogbookEntriesError(error) {
+function getEntriesError(error) {
     console.log("Error getting logbook entries: " + error);
 }
 
@@ -31,10 +31,10 @@ var isLoading = Observable(false);
 
 function reloadEntries() {
     isLoading.value = true;
-    Context.getLogbookEntries(logbook.value.uid)
-        .then(newLogbookEntries => getLogbookEntriesSuccess(newLogbookEntries))
+    Context.getEntries(logbook.value.uid)
+        .then(newLogbookEntries => getEntriesSuccess(newLogbookEntries))
         .then(() => endLoading())
-        .catch(error => getLogbookEntriesError(error));
+        .catch(error => getEntriesError(error));
 }
 
 function endLoading() {

@@ -1,13 +1,13 @@
 <Page ux:Class="AddLogbookPage">
     <Router ux:Dependency="router"/>
+    <Visual ux:Dependency="navBar"/>
 
     <JavaScript File="AddLogbookPage.js"/>
 
+    <NavBarTitle navBar="navBar" Text="add logbook"/>
+
     <DockPanel>
-        <Grid ColumnCount="2" Dock="Bottom">
-            <logbook.Button Text="SAVE" Clicked="{createLogbook}"/>
-            <logbook.Button Text="CANCEL" Clicked="{cancel}"/>
-        </Grid>
+        <logbook.Button Dock="Bottom" Text="SAVE" Clicked="{createLogbook}"/>
         <StackPanel ItemSpacing="10" Padding="10">
             <StackPanel>
                 <logbook.TitleText Value="Title:"/>

@@ -2,7 +2,7 @@ var Observable = require("FuseJS/Observable");
 var Context = require("Modules/Context");
 
 var title = Observable("");
-var description = Observable();
+var description = Observable("");
 var logbook = this.Parameter.map(x => x);
 
 function createEntry() {

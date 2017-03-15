@@ -46,7 +46,16 @@ function createLogbook(title, description, token) {
     });
 }
 
-function getLogbookEntries(logbookId, token) {
+function deleteLogbook(logbookId, token) {
+    return fetch(baseUrl + "/books/" + logbookId + "?logbook-session=" + token, {
+        method: "DELETE",
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+}
+
+function getEntries(logbookId, token) {
     return fetch(baseUrl + "/books/" + logbookId + "/entries?logbook-session=" + token, {
         method: "GET",
         headers: {
@@ -69,10 +78,21 @@ function createEntry(logbookId, title, description, token) {
     });
 }
 
+function deleteEntry(logbookId, entryId, token) {
+  return fetch(baseUrl + "/books/" + logbookId + "/entries/" + entryId + "?logbook-session=" + token, {
+      method: "DELETE",
+      headers: {
+          "Accept": "application/json"
+      }
+  });
+}
+
 module.exports = {
     login: login,
     getLogbooks: getLogbooks,
     createLogbook: createLogbook,
-    getLogbookEntries: getLogbookEntries,
-    createEntry: createEntry
+    deleteLogbook: deleteLogbook,
+    getEntries: getEntries,
+    createEntry: createEntry,
+    deleteEntry: deleteEntry
 };
