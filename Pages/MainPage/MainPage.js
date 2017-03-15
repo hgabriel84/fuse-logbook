@@ -5,9 +5,7 @@ var logbooks = Observable();
 
 function getLogbooks() {
     Context.getLogbooks()
-        .then(newLogbooks => {
-            logbooks.replaceAll(newLogbooks);
-        })
+        .then(newLogbooks => logbooks.replaceAll(newLogbooks))
         .catch(error => onGetLogbooksError(error));
 }
 
@@ -24,9 +22,26 @@ function goToLogbookEntries(arg) {
     router.push("logbookEntries", logbook);
 }
 
+// PULL TO RELOAD METHODS
+var isLoading = Observable(false);
+
+function reloadBooks() {
+    isLoading.value = true;
+    Context.getLogbooks()
+        .then(newLogbooks => logbooks.replaceAll(newLogbooks))
+        .then(() => endLoading())
+        .catch(error => onGetLogbooksError(error));
+}
+
+function endLoading() {
+    isLoading.value = false;
+}
+
 module.exports = {
     logbooks: logbooks,
     getLogbooks: getLogbooks,
     goToAddLogbook: goToAddLogbook,
-    goToLogbookEntries: goToLogbookEntries
+    goToLogbookEntries: goToLogbookEntries,
+    reloadBooks: reloadBooks,
+    isLoading: isLoading
 };

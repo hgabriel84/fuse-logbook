@@ -13,6 +13,7 @@
         </DockPanel>
         <logbook.Button Dock="Bottom" Text="ADD" Clicked="{goToAddLogbook}"/>
         <ScrollView>
+            <PullToReload IsLoading="{isLoading}" ReloadHandler="{reloadBooks}"/>
             <StackPanel>
                 <Rectangle ux:Class="Separator" Height="1" Fill="#FFF2"/>
                 <Each Items="{logbooks}">

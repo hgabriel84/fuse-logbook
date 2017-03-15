@@ -9,16 +9,15 @@
         </DockPanel>
         <logbook.Button Dock="Bottom" Text="NEW ENTRY" Clicked="{goToAddEntry}"/>
         <ScrollView>
+            <PullToReload IsLoading="{isLoading}" ReloadHandler="{reloadEntries}"/>
             <StackPanel>
                 <Each Items="{logbookEntries}">
                     <Rectangle Margin="10">
                         <Stroke Width="1" Color="Color.Text"/>
                         <StackPanel HitTestMode="LocalBoundsAndChildren" Padding="10,0,10,0">
+                            <logbook.Text Value="{creation_timestamp}" FontSize="14" Margin="0,5,0,0" TextAlignment="Right" TextWrapping="Wrap"/>
                             <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                            <logbook.Text Value="{description}" FontSize="12" Margin="0,0,0,5" TextWrapping="Wrap"/>
-                            <WhilePressed>
-                                <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
-                            </WhilePressed>
+                            <logbook.Text Value="{description}" FontSize="14" Margin="0,0,0,5" TextWrapping="Wrap"/>
                         </StackPanel>
                     </Rectangle>
                 </Each>
