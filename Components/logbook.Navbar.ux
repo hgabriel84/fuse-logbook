@@ -1,4 +1,4 @@
-<Panel ux:Class="NavBar" Height="40" Color="Color.Text">
+<Panel ux:Class="NavBar" Color="Color.Text">
 	<WhileCanGoBack>
 		<BackButton Alignment="CenterLeft">
 			<Clicked>

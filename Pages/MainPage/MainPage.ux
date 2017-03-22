@@ -8,7 +8,7 @@
         <Callback Handler="{getLogbooks}"/>
     </Activated>
 
-    <NavBarTitle navBar="navBar" Text="logbooks"/>
+    <NavBarTitle navBar="navBar" Title="logbooks"/>
 
     <DockPanel>
         <logbook.Button Dock="Bottom" Text="ADD" Clicked="{goToAddLogbook}"/>

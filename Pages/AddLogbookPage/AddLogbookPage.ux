@@ -4,7 +4,7 @@
 
     <JavaScript File="AddLogbookPage.js"/>
 
-    <NavBarTitle navBar="navBar" Text="add logbook"/>
+    <NavBarTitle navBar="navBar" Title="add logbook"/>
 
     <DockPanel>
         <logbook.Button Dock="Bottom" Text="SAVE" Clicked="{createLogbook}"/>

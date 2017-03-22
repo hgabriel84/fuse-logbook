@@ -4,20 +4,9 @@
 
     <JavaScript File="LogbookEntriesPage.js"/>
 
+    <NavBarTitle navBar="navBar" Title="{logbookTitle}"/>
+
     <DockPanel>
-        <NavBarTitle navBar="navBar" Text="{logbookTitle}"/>
-        <!-- <DockPanel Dock="Top" Padding="10" Color="Color.Text"> -->
-            <!-- <WhileCanGoBack>
-                <Panel Background="#FFF" HitTestMode="LocalBounds">
-                    <BackButton Alignment="CenterLeft" Dock="Left" HitTestMode="LocalBoundsAndChildren">
-                        <Clicked>
-                            <GoBack/>
-                        </Clicked>
-                    </BackButton>
-                </Panel>
-            </WhileCanGoBack> -->
-            <!-- <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="{logbookTitle}"/>
-        </DockPanel> -->
         <logbook.Button Dock="Bottom" Text="NEW ENTRY" Clicked="{goToAddEntry}"/>
         <ScrollView>
             <PullToReload IsLoading="{isLoading}" ReloadHandler="{reloadEntries}"/>

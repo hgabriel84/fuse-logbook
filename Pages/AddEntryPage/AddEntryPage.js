@@ -13,7 +13,7 @@ function createEntry() {
 
 function onCreateEntrySuccess(title) {
     //TODO show on book success message
-    router.goto("logbookEntries", logbook.value);
+    router.goBack();
 }
 
 function showError(error) {

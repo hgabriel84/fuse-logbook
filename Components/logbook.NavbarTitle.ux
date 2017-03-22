@@ -1,11 +1,11 @@
-<Panel ux:Class="NavBarTitle">
+<Panel ux:Class="NavBarTitle" Height="40">
     <Visual ux:Dependency="navBar"/>
 
-    <string ux:Property="Text"/>
+    <string ux:Property="Title"/>
 
     <AlternateRoot ParentNode="navBar">
         <StackPanel ux:Name="title" Orientation="Horizontal" ItemSpacing="10" Alignment="Center">
-            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="{ReadProperty Text}"/>
+            <logbook.Text FontSize="24" Dock="Left" Alignment="VerticalCenter" Color="Color.Primary" Value="{ReadProperty Title}"/>
             <EnteringAnimation>
                 <Move X="1" RelativeTo="Size" Duration="0.5" Easing="CubicInOut"/>
                 <Change title.Opacity="0" Duration="0.4" Easing="CubicInOut"/>

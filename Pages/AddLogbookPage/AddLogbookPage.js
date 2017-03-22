@@ -12,7 +12,7 @@ function createLogbook() {
 
 function onCreateLogbookSuccess(title) {
     //TODO show on book success message
-    router.goto("main");
+    router.goBack();
 }
 
 function showError(error) {
