@@ -1,15 +1,19 @@
 <Panel ux:Class="NavBar" Color="Color.Text">
 	<WhileCanGoBack>
-		<BackButton Alignment="CenterLeft">
+		<Panel ux:Name="backButton" Alignment="Left" Padding="10,0,0,0" HitTestMode="LocalBounds">
+			<DockPanel>
+				<logbook.BackIcon/>
+				<Text Alignment="Center" Margin="5,0,0,0" FontSize="18" Color="#fff" Dock="Right" Value="BACK"/>
+			</DockPanel>
+			<AddingAnimation>
+				<Change backButton.Opacity="0" Duration=".3"/>
+			</AddingAnimation>
+			<RemovingAnimation>
+				<Change backButton.Opacity="0" Duration=".3"/>
+			</RemovingAnimation>
 			<Clicked>
 				<GoBack/>
 			</Clicked>
-			<AddingAnimation>
-				<Move X="-1" RelativeTo="Size" Duration="0.8" Easing="CubicIn"/>
-			</AddingAnimation>
-			<RemovingAnimation>
-				<Move X="-1" RelativeTo="Size" Duration="0.8" Easing="CubicOut"/>
-			</RemovingAnimation>
-		</BackButton>
+		</Panel>
 	</WhileCanGoBack>
 </Panel>
