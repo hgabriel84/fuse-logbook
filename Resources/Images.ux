@@ -32,4 +32,12 @@
         </MultiDensityImageSource>
     </Image>
 
+    <Image ux:Class="logbook.ErrorIcon" StretchMode="PixelPrecise">
+        <MultiDensityImageSource>
+            <FileImageSource File="../Assets/error_icon.png" Density="1"/>
+            <FileImageSource File="../Assets/error_icon@2x.png" Density="2"/>
+            <FileImageSource File="../Assets/error_icon@3x.png" Density="3"/>
+        </MultiDensityImageSource>
+    </Image>
+
 </Panel>

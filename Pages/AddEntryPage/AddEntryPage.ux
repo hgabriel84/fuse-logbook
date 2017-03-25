@@ -7,6 +7,7 @@
     <NavBarTitle navBar="navBar" Title="add entry"/>
 
     <DockPanel>
+        <logbook.Error ux:Name="errorBar" Text="{errorText}" Dock="Top" Enabled="{hasError}"/>
         <logbook.Button Dock="Bottom" Text="SAVE" Clicked="{createEntry}"/>
         <StackPanel ItemSpacing="10" Padding="10">
             <StackPanel>

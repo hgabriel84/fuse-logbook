@@ -2,6 +2,7 @@ var Observable = require("FuseJS/Observable");
 var Context = require("Modules/Context");
 
 var logbooks = Observable();
+var hasError = Observable(false);
 
 function getLogbooks() {
     Context.getLogbooks()
@@ -10,7 +11,8 @@ function getLogbooks() {
 }
 
 function onGetLogbooksError(error) {
-    console.log("Error getting logbooks: " + error);
+    hasError.value = true
+    errorText.value = "Error getting logbooks"
 }
 
 function goToAddLogbook() {
@@ -23,8 +25,8 @@ function goToLogbookEntries(arg) {
 }
 
 function deleteLogbook(arg) {
-  var logbook = arg.data;
-  Context.deleteLogbook(logbook.uid);
+    var logbook = arg.data;
+    Context.deleteLogbook(logbook.uid);
 }
 
 // PULL TO RELOAD METHODS
@@ -44,6 +46,8 @@ function endLoading() {
 
 module.exports = {
     logbooks: logbooks,
+    hasError: hasError,
+
     getLogbooks: getLogbooks,
     goToAddLogbook: goToAddLogbook,
     goToLogbookEntries: goToLogbookEntries,

@@ -3,8 +3,11 @@ var Context = require("Modules/Context");
 
 var username = Observable("");
 var password = Observable("");
+var errorText = Observable("");
+var hasError = Observable(false);
 
 function login() {
+    isEnabled.value = false
     Context.login(username.value, password.value)
         .then(() => navigateToMainPage())
         .catch(error => showError(error));
@@ -15,13 +18,15 @@ function navigateToMainPage() {
 }
 
 function showError(error) {
-  //TODO show error
-    console.log("LoginPage login error: " + error)
+    hasError.value = true
+    errorText.value = "Login invalid"
 }
 
 module.exports = {
     username: username,
     password: password,
+    errorText: errorText,
+    hasError: hasError,
 
     login: login
 };

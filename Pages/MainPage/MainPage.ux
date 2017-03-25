@@ -11,6 +11,7 @@
     <NavBarTitle navBar="navBar" Title="logbooks"/>
 
     <DockPanel>
+        <logbook.Error ux:Name="errorBar" Text="{errorText}" Dock="Top" Enabled="{hasError}"/>
         <logbook.Button Dock="Bottom" Text="ADD" Clicked="{goToAddLogbook}"/>
         <ScrollView>
             <PullToReload IsLoading="{isLoading}" ReloadHandler="{reloadBooks}"/>

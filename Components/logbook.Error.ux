@@ -1,0 +1,15 @@
+<StackPanel ux:Class="logbook.Error" FontSize="16" Enabled="false">
+    <string ux:Property="Text"/>
+    <float ux:Property="FontSize"/>
+    <bool ux:Property="Enabled"/>
+    <StackPanel ux:Name="panel" Color="Color.BackgroundError" Padding="5" Orientation="Horizontal" IsEnabled="{ReadProperty Enabled}">
+        <WhileEnabled>
+            <Change panel.Visibility="Visible" />
+        </WhileEnabled>
+        <WhileDisabled>
+            <Change panel.Visibility="Collapsed"/>
+        </WhileDisabled>
+        <logbook.ErrorIcon Row="0" Column="0" Margin="0,0,10,0"/>
+        <logbook.Text Value="{ReadProperty Text}" FontSize="{ReadProperty FontSize}" Alignment="VerticalCenter"/>
+    </StackPanel>
+</StackPanel>

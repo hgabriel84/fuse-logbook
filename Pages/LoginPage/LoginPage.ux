@@ -4,6 +4,7 @@
     <JavaScript File="LoginPage.js"/>
 
     <DockPanel>
+        <logbook.Error ux:Name="errorBar" Text="{errorText}" Dock="Top" Enabled="{hasError}"/>
         <Grid Rows="1.5*,auto,1*">
 
             <Grid ux:Name="loginArea" Row="1" Padding="20,20" RowCount="2" Columns="auto,1*" Height="160" MaxWidth="400">

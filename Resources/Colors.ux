@@ -4,4 +4,5 @@
     <float4 ux:Global="Color.Text" ux:Value="#FFFFFF"/>
     <float4 ux:Global="Color.Border" ux:Value="#FFF2"/>
     <float4 ux:Global="Color.ButtonBorder" ux:Value="#00000060"/>
+    <float4 ux:Global="Color.BackgroundError" ux:Value="#FF0000"/>
 </Panel>

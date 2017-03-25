@@ -7,6 +7,7 @@
     <NavBarTitle navBar="navBar" Title="{logbookTitle}"/>
 
     <DockPanel>
+        <logbook.Error ux:Name="errorBar" Text="{errorText}" Dock="Top" Enabled="{hasError}"/>
         <logbook.Button Dock="Bottom" Text="NEW ENTRY" Clicked="{goToAddEntry}"/>
         <ScrollView>
             <PullToReload IsLoading="{isLoading}" ReloadHandler="{reloadEntries}"/>

@@ -3,6 +3,7 @@ var Context = require("Modules/Context");
 
 var title = Observable("");
 var description = Observable("");
+var hasError = Observable(false);
 
 function createLogbook() {
     Context.createLogbook(title.value, description.value)
@@ -11,13 +12,12 @@ function createLogbook() {
 }
 
 function onCreateLogbookSuccess(title) {
-    //TODO show on book success message
     router.goBack();
 }
 
 function showError(error) {
-    //TODO show error
-    console.log("AddLogbookPage add book error: " + error);
+    hasError.value = true
+    errorText.value = "Error adding book"
 }
 
 function cancel() {
@@ -27,6 +27,7 @@ function cancel() {
 module.exports = {
     title: title,
     description: description,
+    hasError: hasError,
 
     createLogbook: createLogbook,
     cancel: cancel

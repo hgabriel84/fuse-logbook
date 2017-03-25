@@ -2,6 +2,7 @@ var Observable = require("FuseJS/Observable");
 var Context = require("Modules/Context");
 
 var logbookEntries = Observable();
+var hasError = Observable(false);
 
 var logbook = this.Parameter.map(x => {
     Context.getEntries(x.uid)
@@ -19,7 +20,8 @@ function getEntriesSuccess(newLogbookEntries) {
 }
 
 function getEntriesError(error) {
-    console.log("Error getting logbook entries: " + error);
+    hasError.value = true
+    errorText.value = "Error getting entries"
 }
 
 function goToAddEntry() {
@@ -45,6 +47,8 @@ module.exports = {
     logbook: logbook,
     logbookTitle: logbookTitle,
     logbookEntries: logbookEntries,
+    hasError: hasError,
+
     goToAddEntry: goToAddEntry,
     reloadEntries: reloadEntries,
     isLoading: isLoading
