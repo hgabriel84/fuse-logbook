@@ -27,6 +27,7 @@ function goToLogbookEntries(arg) {
 function deleteLogbook(arg) {
     var logbook = arg.data;
     Context.deleteLogbook(logbook.uid);
+    logbooks.remove(arg.data);
 }
 
 // PULL TO RELOAD METHODS

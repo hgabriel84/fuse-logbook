@@ -16,12 +16,25 @@
                     <Rectangle Margin="10">
                         <Stroke Width="1" Color="Color.Text"/>
                         <DockPanel HitTestMode="LocalBoundsAndChildren" Padding="10,10,10,10">
+                          <SwipeGesture ux:Name="swipeLeft" Direction="Left" Type="Active"/>
+                          <SwipeGesture ux:Name="swipeRight" Direction="Right" Type="Active"/>
+                          <SwipingAnimation Source="swipeLeft">
+                              <Set deleteIcon.Visibility="Visible"/>
+                              <Scale Target="deleteIcon" Factor="1" Easing="BackOut"/>
+                          </SwipingAnimation>
+                          <SwipingAnimation Source="swipeRight">
+                              <Set deleteIcon.Visibility="Collapsed"/>
+                              <Scale Target="deleteIcon" Factor="1" Easing="BackOut"/>
+                          </SwipingAnimation>
                             <Image Dock="Left" File="../../Assets/openbook_icon.png" Height="24" Width="24"/>
                             <StackPanel Margin="10,0,0,0">
                                 <logbook.Text Value="{creation_timestamp}" FontSize="14" TextAlignment="Right" TextWrapping="Wrap"/>
                                 <logbook.Text Value="{title}" FontSize="16" Margin="0,5,0,0" TextWrapping="Wrap"/>
                                 <logbook.Text Value="{description}" FontSize="14" TextWrapping="Wrap"/>
                             </StackPanel>
+                            <Panel ux:Name="deleteIcon" Visibility="Collapsed" Dock="Right" Color="Color.BackgroundError" Padding="10,0">
+                                <logbook.DeleteIcon/>
+                            </Panel>
                         </DockPanel>
                     </Rectangle>
                 </Each>

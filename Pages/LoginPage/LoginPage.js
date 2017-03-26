@@ -7,7 +7,6 @@ var errorText = Observable("");
 var hasError = Observable(false);
 
 function login() {
-    isEnabled.value = false
     Context.login(username.value, password.value)
         .then(() => navigateToMainPage())
         .catch(error => showError(error));
