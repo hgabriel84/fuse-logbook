@@ -1,20 +1,22 @@
 <App Background="Color.Primary">
-    <iOS.StatusBarConfig Style="Light"/>
-    <Android.StatusBarConfig Color="Color.Primary"/>
+  <iOS.StatusBarConfig Style="Light"/>
+  <Android.StatusBarConfig Color="Color.Primary"/>
 
-    <Router ux:Name="router"/>
+  <Router ux:Name="router"/>
 
+  <ClientPanel>
     <DockPanel>
-        <StatusBarBackground Dock="Top"/>
-        <NavBar ux:Name="navBar" Dock="Top"/>
+      <StatusBarBackground Dock="Top"/>
+      <NavBar ux:Name="navBar" Dock="Top"/>
 
-        <Navigator DefaultPath="splash">
-            <SplashPage ux:Template="splash" router="router"/>
-            <LoginPage ux:Template="login" router="router"/>
-            <MainPage ux:Template="main" router="router" navBar="navBar"/>
-            <AddLogbookPage ux:Template="addLogbook" router="router" navBar="navBar"/>
-            <LogbookEntriesPage ux:Template="logbookEntries" router="router" navBar="navBar"/>
-            <AddEntryPage ux:Template="addEntryPage" router="router" navBar="navBar"/>
-        </Navigator>
+      <Navigator DefaultPath="splash">
+        <SplashPage ux:Template="splash" router="router"/>
+        <LoginPage ux:Template="login" router="router"/>
+        <MainPage ux:Template="main" router="router" navBar="navBar"/>
+        <AddLogbookPage ux:Template="addLogbook" router="router" navBar="navBar"/>
+        <LogbookEntriesPage ux:Template="logbookEntries" router="router" navBar="navBar"/>
+        <AddEntryPage ux:Template="addEntryPage" router="router" navBar="navBar"/>
+      </Navigator>
     </DockPanel>
+  </ClientPanel>
 </App>

@@ -22,6 +22,7 @@
                     <DockPanel HitTestMode="LocalBoundsAndChildren">
                         <SwipeGesture ux:Name="swipeLeft" Direction="Left" Type="Active"/>
                         <SwipeGesture ux:Name="swipeRight" Direction="Right" Type="Active"/>
+                        
                         <SwipingAnimation Source="swipeLeft">
                             <Set deleteIcon.Visibility="Visible"/>
                             <Scale Target="deleteIcon" Factor="1" Easing="BackOut"/>
@@ -30,15 +31,6 @@
                             <Set deleteIcon.Visibility="Collapsed"/>
                             <Scale Target="deleteIcon" Factor="1" Easing="BackOut"/>
                         </SwipingAnimation>
-
-                        <WhilePressed>
-                            <Set deleteIcon.Visibility="Collapsed"/>
-                            <Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
-                        </WhilePressed>
-
-                        <RemovingAnimation>
-                            <Move RelativeTo="Size" X="-1" Duration="0.4" Easing="CircularOut" />
-                        </RemovingAnimation>
 
                         <Image Dock="Left" File="../../Assets/book_icon.png" Height="24" Width="24" Margin="10,0,0,0" Clicked="{goToLogbookEntries}"/>
                         <StackPanel Margin="10,10,0,10" Clicked="{goToLogbookEntries}">

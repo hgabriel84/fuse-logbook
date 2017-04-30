@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:9000";
+const baseUrl = "http://192.168.1.70:9000";
 
 function login(username, password, rememberMe) {
     var parameters = {
